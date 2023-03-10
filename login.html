@@ -51,25 +51,40 @@
 <body>
 	<div class="container">
 		<h2>Login</h2>
-		<form>
+		<form id="login-form">
 			<label for="email">Email:</label>
 			<input type="email" id="email" required>
 			<label for="password">Password:</label>
 			<input type="password" id="password" required>
-			<button type="submit" id="submit">Submit</button>
+			<button type="submit" id="login-button">Login</button>
+		</form>
+	</div>
+	<div class="container">
+		<h2>Register</h2>
+		<form id="register-form">
+			<label for="new-email">Email:</label>
+			<input type="email" id="new-email" required>
+			<label for="new-password">Password:</label>
+			<input type="password" id="new-password" required>
+			<button type="submit" id="register-button">Register</button>
 		</form>
 	</div>
 	<script>
-		var form = document.querySelector('form');
-		var emailInput = document.getElementById('email');
-		var passwordInput = document.getElementById('password');
-		var submitButton = document.getElementById('submit');
+		var loginForm = document.getElementById('login-form');
+		var loginEmailInput = document.getElementById('email');
+		var loginPasswordInput = document.getElementById('password');
+		var loginButton = document.getElementById('login-button');
 
-		form.addEventListener('submit', function(e) {
+		var registerForm = document.getElementById('register-form');
+		var registerEmailInput = document.getElementById('new-email');
+		var registerPasswordInput = document.getElementById('new-password');
+		var registerButton = document.getElementById('register-button');
+
+		loginForm.addEventListener('submit', function(e) {
 			e.preventDefault();
 			
-			var email = emailInput.value;
-			var password = passwordInput.value;
+			var email = loginEmailInput.value;
+			var password = loginPasswordInput.value;
 			var storedEmail = localStorage.getItem('email');
 			var storedPassword = localStorage.getItem('password');
 			
@@ -80,6 +95,18 @@
 			} else {
 				alert('Email or password is incorrect.');
 			}
+		});
+
+		registerForm.addEventListener('submit', function(e) {
+			e.preventDefault();
+			
+			var email = registerEmailInput.value;
+			var password = registerPasswordInput.value;
+
+			localStorage.setItem('email', email);
+			localStorage.setItem('password', password);
+
+			alert('Registration successful!');
 		});
 	</script>
 </body>
