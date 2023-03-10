@@ -11,96 +11,66 @@ if (!storedEmail || !storedPassword) {
 }
 </script>
 <head>
-	<title>EthHAX Manager</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My Cool Space Site</title>
 	<style>
-		body {
-			background-color: black;
-			color: white;
-			font-family: Arial, sans-serif;
+		.navbar {
+		  overflow: hidden;
+		  background-color: #333;
+		  font-family: Arial, sans-serif;
+		}
+
+		.navbar a {
+		  float: left;
+		  display: block;
+		  color: white;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		}
+
+		.navbar a:hover {
+		  background-color: #ddd;
+		  color: black;
+		}
+
+		.navbar a.active {
+		  background-color: #4CAF50;
+		  color: white;
+		}
+
+		.content {
+			margin-top: 50px;
 			text-align: center;
-			margin: 0;
 		}
 
-		h1 {
-			font-size: 5rem;
-			margin-top: 3rem;
-			text-shadow: 2px 2px 2px #ffffff;
+		.content h1 {
+			font-size: 48px;
+			color: #333;
+			margin-bottom: 20px;
 		}
 
-		#countdown {
-			font-size: 3rem;
-			margin-top: 2rem;
-			display: inline-block;
-			background-color: #2f2f2f;
-			padding: 1rem;
-			border-radius: 1rem;
-			box-shadow: 2px 2px 2px #ffffff;
-		}
-
-		#rocket {
-			position: absolute;
-			bottom: 0;
-			left: 50%;
-			transform: translateX(-50%);
-			animation: rocket 2s ease-in-out infinite;
-		}
-
-		@keyframes rocket {
-			0% {
-				transform: translateX(-50%) translateY(0);
-			}
-
-			50% {
-				transform: translateX(-50%) translateY(-50px);
-			}
-
-			100% {
-				transform: translateX(-50%) translateY(0);
-			}
+		.content p {
+			font-size: 24px;
+			color: #666;
+			margin-bottom: 40px;
 		}
 	</style>
-
-  <meta property="og:title" content="EthHAX Manager">
-  <meta property="og:description" content="This page will help you through purchasing anything within EthHAX or it's companies. EthHAX will encrypt your data for the safest purchases possible.">
-  <meta property="og:image" content="logo.png">
-  <meta property="og:url" content="https://ethhax.github.io">
-
-
 </head>
 <body>
-	<h1>SPACE LAUNCH</h1>
-	<p>Our website is coming soon</p>
-	<div id="countdown"></div>
-	<img id="rocket" src="rocket.png" alt="rocket">
-	<script>
-		// Set the date we're counting down to
-		var countDownDate = new Date("March 13, 2023 16:00:00").getTime();
 
-		// Update the countdown every 1 second
-		var x = setInterval(function() {
+	<div class="navbar">
+	  <a href="#" class="active">Home</a>
+	  <a href="#about">About</a>
+	  <a href="#contact">Contact</a>
+	  <a href="login.html">Log in</a>
+	  <a href="logout.html">Log out</a>
+	</div>
 
-			// Get today's date and time
-			var now = new Date().getTime();
+	<div class="content">
+	  <h1>Welcome to my space site</h1>
+	  <p>Explore the wonders of the universe with us</p>
+	  <img src="space.jpg" alt="Space image">
+	</div>
 
-			// Find the distance between now and the countdown date
-			var distance = countDownDate - now;
-
-			// Time calculations for days, hours, minutes and seconds
-			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-			// Output the result in an element with id="countdown"
-			document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-			// If the countdown is finished, display the message
-			if (distance < 0) {
-				clearInterval(x);
-				document.getElementById("countdown").innerHTML = "WE HAVE LAUNCHED!";
-			}
-		}, 1000);
-	</script>
 </body>
 </html>
