@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login Screen</title>
+	<style>
+		body {
+			background-color: #f1f1f1;
+		}
+
+		.container {
+			margin: auto;
+			margin-top: 10%;
+			width: 50%;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px #aaa;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+		}
+
+		label {
+			margin-top: 10px;
+		}
+
+		input {
+			padding: 5px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px #aaa;
+		}
+
+		button {
+			margin-top: 20px;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #0077cc;
+			color: #fff;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Login</h2>
+		<form>
+			<label for="email">Email:</label>
+			<input type="email" id="email" required>
+			<label for="password">Password:</label>
+			<input type="password" id="password" required>
+			<button type="submit" id="submit">Submit</button>
+		</form>
+	</div>
+	<script>
+		var form = document.querySelector('form');
+		var emailInput = document.getElementById('email');
+		var passwordInput = document.getElementById('password');
+		var submitButton = document.getElementById('submit');
+
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+			
+			var email = emailInput.value;
+			var password = passwordInput.value;
+			var storedEmail = localStorage.getItem('email');
+			var storedPassword = localStorage.getItem('password');
+			
+			if (email === storedEmail && password === storedPassword) {
+				alert('Login successful!');
+				// Redirect the user to a restricted area of your website
+				// Or grant them access to restricted content
+			} else {
+				alert('Email or password is incorrect.');
+			}
+		});
+	</script>
+</body>
+</html>
