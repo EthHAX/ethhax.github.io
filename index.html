@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html>
+<script>
+// Check if the user is logged in
+var storedEmail = localStorage.getItem('email');
+var storedPassword = localStorage.getItem('password');
+
+if (!storedEmail || !storedPassword) {
+	// Redirect the user to the login page
+	window.location.href = 'login.html';
+}
+</script>
 <head>
 	<title>EthHAX Manager</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
